@@ -1,0 +1,18 @@
+.left-menu {
+    float: left;
+    padding: 0 13px;
+}
+.dashboard-menu .toggle-menu .left-menu a {
+    font-size: 14px;
+    padding: 15px 9px;
+}
+.dashboard-menu {
+    min-height: 46px;
+}
+.col-sm-9{
+    width: 70%;
+    float: left;
+}
+.menu-section{
+    border-top: 3px solid #2C3E50;
+}
