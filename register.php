@@ -1,10 +1,13 @@
 <?php include("header.php");
-error_reporting(0);
-
+// error_reporting(0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 //Prevent the user visiting the logged in page if he/she is already logged in
 if(isUserLoggedIn()) { header("Location: account.php"); die(); }
 
-$ref_id = $_GET['ref_id'];
+	if(isset($_GET['ref_id']) && !empty($_GET['ref_id'])){
+		$ref_id = $_GET['ref_id'];
+	}
 //Forms posted
 if(!empty($_POST))
 {
@@ -94,7 +97,7 @@ if(!empty($_POST))
 		else
 		{
 			//Attempt to add the user to the database, carry out finishing  tasks like emailing the user (if required)
-			if(!$user->userCakeAddUser())
+			if(!$user->membershipScriptAddUser())
 			{
 				if($user->mail_failure) $errors[] = lang("MAIL_ERROR");
 				if($user->sql_failure)  $errors[] = lang("SQL_ERROR");
@@ -228,7 +231,7 @@ if(!empty($_POST))
 	<div class="comm-float">
 	<div class="left-block">
 	<p class="input-heading">Enter a referral ID, if any: </p>
-	<input type="text"  name="ref_id" id="ref_id" value="<?php echo $ref_id; ?>" placeholder="Enter referral ID" >
+	<input type="text"  name="ref_id" id="ref_id" value="<?php echo isset($ref_id) ? $ref_id : '' ?>" placeholder="Enter referral ID" >
 	</div>
     <div class="left-block right-block">
 	<p class="term-conditions">If you have been referred to us by a current publisher, please enter their code here.</p>
