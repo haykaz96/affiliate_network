@@ -30,15 +30,15 @@ $user_data = mysqli_fetch_assoc($temp_query);
 <link href="<?php echo $template ?>" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="models/site-templates/css/font-awesome.min.css">
 <link rel="stylesheet" href="models/site-templates/css/jquery-ui.css">
-<link rel="stylesheet" href="models/site-templates/css/menu.css">
+<link rel="stylesheet" href="models/site-templates/css/main1.css">
 
 <script src='models/funcs.js' type='text/javascript'></script>
 <script src="models/site-templates/js/jquery.min.js"></script>
-<script src="models/site-templates/js/jquery-1.12.4.js"></script>
 <script src="models/site-templates/js/jquery.validate.js"></script>
 <script src="models/site-templates/js/jquery.validate.min.js"></script>
-<script src='models/site-templates/js/exporting.js' type='text/javascript'></script>
+<script src="models/site-templates/js/jquery-1.12.4.js"></script>
 <script src='models/site-templates/js/highcharts.js' type='text/javascript'></script>
+<script src='models/site-templates/js/exporting.js' type='text/javascript'></script>
 
 <!-- Date Picker -->
 <script src="models/site-templates/js/jquery-ui.js"></script>

@@ -1,13 +1,13 @@
 <?php include("header.php");
-// error_reporting(0);
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting(0);
+
 //Prevent the user visiting the logged in page if he/she is already logged in
 if(isUserLoggedIn()) { header("Location: account.php"); die(); }
 
-	if(isset($_GET['ref_id']) && !empty($_GET['ref_id'])){
-		$ref_id = $_GET['ref_id'];
-	}
+if(isset($_GET['ref_id']) && !empty($_GET['ref_id'])){
+	$ref_id = $_GET['ref_id'];
+}
+
 //Forms posted
 if(!empty($_POST))
 {
@@ -85,7 +85,7 @@ if(!empty($_POST))
 	//End data validation
 	if(count($errors) == 0)
 	{	
-		//Construct a user object
+		
 		$user = new User($username,$password,$email,$ref_id,$sub_id,$name,$address,$postal_code,$telephone_number,$country,$payment_method,$traffic_details,$payment_details);
 		
 		//Checking this flag tells us whether there were any errors such as possible data duplication occured
@@ -151,18 +151,16 @@ if(!empty($_POST))
 	<input type="text" name="postal_code" id="postal_code"  placeholder="Postal Code">
 	</div>
 	<div class="left-block right-block">
-<?php 
-		$sql = "SELECT * FROM uc_countries order by country_name ASC";
-		$result = $mysqli->query($sql);
-		
-		
-	?>
 	<select name="country" id="country">
-			<option value="0">Select Country</option>
-			<?php while($row = $result->fetch_assoc()) { ?>
-				<option value="<?php echo $row['id'] ?>" selected><?php echo $row['country_name'] ?></option>
-			<?php } ?>
-		</select>
+<?php 
+ $sql = "SELECT * FROM uc_countries order by country_name ASC";
+ $result = $mysqli->query($sql);
+?>
+<?php while($row = $result->fetch_assoc()) { ?>
+<option value="<?php echo $row['id'] ?>" selected><?php echo $row['country_name'] ?></option>
+<?php } ?>
+</select>
+
     </div>
 	</div>
 	
@@ -185,18 +183,15 @@ if(!empty($_POST))
     <h4>Payment Information</h4>
 	<div class="comm-float">
 	<div class="left-block">
-    <?php 
-		$sql = "SELECT * FROM uc_payments_method order by id ASC";
-		$result = $mysqli->query($sql);
-		
-		
-	?>
 		<p class="input-heading">Payment Method </p>
 		<select name="payment_method" id="payment_method">
-        <option value="0">Select Payment Method</option>
-		<?php while($row = $result->fetch_assoc()) { ?>
-		<option value="<?php echo $row['id'] ?>" selected><?php echo $row['payment_method'] ?></option>
-		<?php } ?>
+<?php 
+ $sql = "SELECT * FROM uc_payments_method order by id ASC";
+ $result = $mysqli->query($sql);
+?>
+<?php while($row = $result->fetch_assoc()) { ?>
+<option value="<?php echo $row['id'] ?>" selected><?php echo $row['payment_method'] ?></option>
+<?php } ?>
 		</select>
 	</div>
 	</div>

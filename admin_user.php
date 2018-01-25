@@ -262,17 +262,13 @@ $row = mysqli_fetch_assoc($result11);
                                         <div class="col-sm-4 npl">
                                             <label>Country: </label>
                                             <select name="country" id="country">
-                                                <option value="">Pick country</option>
-                                                <?php
-                                                $query2 = "SELECT * FROM uc_countries";
-                                                $result2 = mysqli_query($mysqli, $query2);
-                                                ?>
-                                                <?php while ($row2 = mysqli_fetch_assoc($result2)) { ?>
-
-                                                    <option <?php if ($row2['id'] == $userdetails['country']) {
-                                                        echo 'selected';
-                                                    } ?> value="<?php echo $row2['id']; ?>"><?php echo $row2['country_name']; ?></option>
-                                                <?php } ?>
+<?php 
+ $sql = "SELECT * FROM uc_countries order by country_name ASC";
+ $result = $mysqli->query($sql);
+?>
+<?php while ($row = mysqli_fetch_assoc($result)) { ?>
+<option <?php if ($row['id'] == $userdetails['country']) { echo 'selected'; } ?> value="<?php echo $row['id']; ?>"><?php echo $row['country_name']; ?></option>
+ <?php } ?>
                                             </select>
                                         </div>
                                         <div class="col-sm-4">
@@ -316,15 +312,14 @@ $row = mysqli_fetch_assoc($result11);
                                         <div class="col-sm-6 npl">
                                             <label>Payment Method: </label>
                                             <select name="payment_method" id="payment_method">
-                                                <option value="Paypal" <?php if ('Paypal' == $userdetails['payment_method']) {
-                                                    echo 'selected';
-                                                } ?>>Paypal
-                                                </option>
-                                                <option value="Moneybookers" <?php if ('Moneybookers' == $userdetails['payment_method']) {
-                                                    echo 'selected';
-                                                } ?>>Moneybookers
-                                                </option>
-                                            </select>
+<?php 
+ $sql = "SELECT * FROM uc_payments_method order by id ASC";
+ $result = $mysqli->query($sql);
+?>
+<?php while($row = $result->fetch_assoc()) { ?>
+<option value="<?php echo $row['id'] ?>" selected><?php echo $row['payment_method'] ?></option>
+<?php } ?>
+</select>
                                         </div>
                                         <div class="col-sm-6 nplr">
                                             <label>Payment Details:</label>

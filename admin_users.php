@@ -78,10 +78,10 @@ $pagination = paginationShow($total_pages, $targetpage, $limit);
 <select name="user_status" id="user_status">
 <option value="">Pick Status</option>
 <?php
- $query11 = "SELECT * FROM uc_permissions";
- $result11 = mysqli_query($mysqli, $query11);
+ $query1 = "SELECT * FROM uc_permissions";
+ $result1 = mysqli_query($mysqli, $query1);
 ?>
-<?php while ($row11 = mysqli_fetch_assoc($result11)) { ?>
+<?php while ($row11 = mysqli_fetch_assoc($result1)) { ?>
 
 <option <?php if ($row11['id'] == $_GET['user_status']) { echo 'selected'; } ?> value="<?php echo $row11['id']; ?>"><?php echo $row11['name']; ?></option>
 
@@ -93,17 +93,14 @@ $pagination = paginationShow($total_pages, $targetpage, $limit);
                                     <label>Country: </label>
                                     <select name="country" id="country">
                                         <option value="">Pick country</option>
-                                        <?php
-                                        $query12 = "SELECT * FROM uc_countries";
-                                        $result12 = mysqli_query($mysqli, $query12);
-                                        ?>
-                                        <?php while ($row12 = mysqli_fetch_assoc($result12)) { ?>
-
-                                            <option <?php if ($row12['id'] == $_GET['country']) {
-                                                echo 'selected';
-                                            } ?> value="<?php echo $row12['id']; ?>"><?php echo $row12['country_name']; ?></option>
-                                        <?php } ?>
-                                    </select>
+                                        <?php 
+ $sql = "SELECT * FROM uc_countries order by country_name ASC";
+ $result = $mysqli->query($sql);
+?>
+<?php while($row = $result->fetch_assoc()) { ?>
+<option value="<?php echo $row['id'] ?>" selected><?php echo $row['country_name'] ?></option>
+<?php } ?>
+</select>
                                 </div>
                                 <div class="col-xs-12 col-sm-2 npl">
                                     <label> User ID Search:</label>
@@ -127,11 +124,6 @@ $pagination = paginationShow($total_pages, $targetpage, $limit);
 
                         </form>
                     </div>
-                    <?php
-                    //                    $query1 = "SELECT * FROM uc_clicks_status ";
-                    //                    $result1 = mysqli_query($mysqli, $query1);
-
-                    ?>
 
                 </div>
                 <div class="float-left">

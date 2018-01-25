@@ -36,6 +36,7 @@ if (isset($_POST['name'])) {
     } else {
         $errors[] = lang("NOTHING_TO_UPDATE");
     }
+    $userdetails = fetchUserDetails(NULL, NULL, $user_id); //Fetch user details
 
 }
 // ACCOUNT DETAIL SUBMISSION GOES HERE
@@ -136,7 +137,7 @@ if (isset($_POST['account_detail']) && !empty($_POST['account_detail'])) {
 <div class="col-sm-12">
 <div class="col-sm-6 npl">
 <label>Full Name:</label>
-<input class="form-control" type='text' name='name' value='<?php echo $userdetails['name']; ?>' id="name" disabled="disabled">
+<input class="form-control" type='text' name='name' value='<?php echo $userdetails['name']; ?>' id="name" readonly="readonly">
                                 </div>
                                 <div class="col-sm-6 npl">
                                     <label>Address:</label>
@@ -174,17 +175,19 @@ if (isset($_POST['account_detail']) && !empty($_POST['account_detail'])) {
                             <input class="form-control" type='text' name='telephone'
                                    value='<?php echo $userdetails['telephone_number']; ?>' id="telephone_number">
                         </div>
+                        <?php
+                            $sql = "SELECT * FROM uc_payments_method order by id ASC";
+                            $result = $mysqli->query($sql);
+                        ?>
                         <div class="col-sm-6 npl">
                             <label>Payment Method: </label>
                             <select name="payment_method" id="payment_method">
-                                <option value="Paypal" <?php if ('Paypal' == $userdetails['payment_method']) {
-                                    echo 'selected';
-                                } ?>>Paypal
+                                <?php while($row = $result->fetch_assoc()) { ?>
+                                <option value="<?php echo $row['id'] ?>"
+                                    <?php echo ($row['id'] == $userdetails['payment_method']) ? 'selected' :'' ?> >
+                                    <?php echo $row['payment_method'] ?>
                                 </option>
-                                <option value="Moneybookers" <?php if ('Moneybookers' == $userdetails['payment_method']) {
-                                    echo 'selected';
-                                } ?>>Moneybookers
-                                </option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>

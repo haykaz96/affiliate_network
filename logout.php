@@ -1,7 +1,6 @@
 <?php
 
 require_once("models/config.php");
-
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 
 //Log the user out
@@ -12,7 +11,6 @@ if(isUserLoggedIn())
 
 if(!empty($websiteUrl)) 
 {
-
 	$add_http = "";
 	
 	if(strpos($websiteUrl,"http://") === false)
@@ -30,6 +28,3 @@ else
 }	
 
 ?>
-<!-- 	echo "<pre>";
-var_dump($websiteUrl);
-die(); -->

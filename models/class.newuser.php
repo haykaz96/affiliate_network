@@ -24,7 +24,7 @@ class User
 	public $traffic_details;
 	public $telephone_number;
 
-	function __construct($user,$pass,$email,$ref_id,$sub_id,$traffic_details,$payment_details,$payment_method,$telephone_number,$country,$postal_code,$address,$name)
+	function __construct($user,$pass,$email,$ref_id,$sub_id,$name,$address,$postal_code,$telephone_number,$country,$payment_method,$traffic_details,$payment_details)
 	{
 		
 	    //Sanitize

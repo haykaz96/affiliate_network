@@ -160,11 +160,11 @@ $pagination = paginationShow($total_pages, $targetpage, $limit);
 <div class=" mb-20 status-table">
 <table width="100%">
 <tr>
-<td>Campaign</td>
-<td>Clicks</td>
-<td>Conversions</td>
-<td>Payout</td>
-<td>EPC</td>
+<td width="50%">Campaign</td>
+<td width="15%">Clicks</td>
+<td width="15%">Conversions</td>
+<td width="10%">Payout</td>
+<td width="10%">EPC</td>
 </tr>
 <tr></tr>
 
