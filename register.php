@@ -1,13 +1,13 @@
 <?php include("header.php");
-// error_reporting(0);
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting(0);
+
 //Prevent the user visiting the logged in page if he/she is already logged in
 if(isUserLoggedIn()) { header("Location: account.php"); die(); }
 
-	if(isset($_GET['ref_id']) && !empty($_GET['ref_id'])){
-		$ref_id = $_GET['ref_id'];
-	}
+if(isset($_GET['ref_id']) && !empty($_GET['ref_id'])){
+	$ref_id = $_GET['ref_id'];
+}
+
 //Forms posted
 if(!empty($_POST))
 {
@@ -84,7 +84,7 @@ if(!empty($_POST))
 	}
 	//End data validation
 	if(count($errors) == 0)
-	{	
+	{
 		//Construct a user object
 		$user = new User($username,$password,$email,$ref_id,$sub_id,$name,$address,$postal_code,$telephone_number,$country,$payment_method,$traffic_details,$payment_details);
 		

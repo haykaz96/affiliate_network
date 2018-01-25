@@ -224,4 +224,4 @@
         });
     });
 </script>
-<!-- <?php include "dashboard-footer.php"; ?> -->
+<?php include "dashboard-footer.php"; ?>

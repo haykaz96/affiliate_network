@@ -23,6 +23,35 @@ p {
   color: #3c474a;
   line-height: 22px;
 }
+
+/* start main css */
+.left-menu {
+    float: left;
+    padding: 0 13px!important;
+}
+.bashboard-menu .toggle-menu .left-menu a {
+    font-size: 14px!important;
+    padding: 15px 9px!important;
+}
+.dashboard-menu .toggle-menu .left-menu a {
+    font-size: 14px!important;
+    padding: 15px 9px!important;
+}
+.bashboard-menu {
+    min-height: 46px!important;
+}
+.dashboard-menu {
+    min-height: 46px!important;
+}
+.col-sm-9{
+    width: 70%!important;
+    float: left!important;
+}
+.menu-section{
+    border-top: 3px solid #2C3E50!important;
+}
+/* end main css */
+
 .open-menu{
 	display: none!important;
 }
@@ -1610,8 +1639,9 @@ select#time_range {
 	.left-menu {
   width: 100%;
 }
-	.left-menu ul li:hover .sub-menu {
-  display: none;
+
+.left-menu ul li:hover .sub-menu {  display: block;
+  transition: all 0.6s ease 0s;
 }
 .sub-menu {
   display: none;
@@ -1696,6 +1726,9 @@ h1.main-heading {
 }
 }
 @media(max-width:480px){
+.left-menu ul li:hover .sub-menu {  display: block;
+	transition: all 0.6s ease 0s;
+}
 .pick-select {
   width: 100%;
   padding: 0;
@@ -1752,3 +1785,5 @@ h1.main-heading {
 	float: right;
 	cursor: pointer;
 }
+
+

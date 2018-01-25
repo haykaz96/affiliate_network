@@ -254,7 +254,7 @@ $pagination = paginationShow($total_pages, $targetpage, $limit);
         jQuery('#row').on('change', function () {
             var url = jQuery(this).val();
             if (url) {
-                window.location = 'admin_users.php?row=' + this.value
+                window.location = window.location.href  + '&row=' + this.value;
             }
             return false;
         });
