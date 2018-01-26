@@ -34,9 +34,9 @@ $user_data = mysqli_fetch_assoc($temp_query);
 
 <script src='models/funcs.js' type='text/javascript'></script>
 <script src="models/site-templates/js/jquery.min.js"></script>
+<script src="models/site-templates/js/jquery-1.12.4.js"></script>
 <script src="models/site-templates/js/jquery.validate.js"></script>
 <script src="models/site-templates/js/jquery.validate.min.js"></script>
-<script src="models/site-templates/js/jquery-1.12.4.js"></script>
 <script src='models/site-templates/js/highcharts.js' type='text/javascript'></script>
 <script src='models/site-templates/js/exporting.js' type='text/javascript'></script>
 

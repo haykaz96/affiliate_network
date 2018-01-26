@@ -128,7 +128,7 @@ function resultBlock($errors, $successes)
     //Error block
     if (count($errors) > 0) {
         echo '<div class="success-message error-message">
-		<p><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>';
+		<p><span><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br></span>';
         foreach ($errors as $error) {
             echo $error . '</br>';
         }
